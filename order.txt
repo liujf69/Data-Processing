@@ -1,3 +1,0 @@
-python Extract_frame.py --sample_name_path ./test_sample.txt --video_path ./Video --output_path ./Video_Frame
-
-python Extract_person.py --sample_name_path ./test_sample.txt --frame_path ./Video_Frame --output_path ./Person_Frame --model_path ./pretrained/yolov5m.pt --data_yaml ./pretrained/coco128.yaml
