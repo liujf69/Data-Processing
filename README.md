@@ -1,6 +1,7 @@
 # Extract_NTU_Person
 This is a code support for the **EPP-Net**. <br />
 You can generate the image frame required by EPP-Net as follows.
+![image](https://github.com/liujf69/Extract_NTU_Person/blob/master/Fig.png)
 
 # Prepare datasets:
 1. Download **NTU RGB+D** Video dataset from [https://rose1.ntu.edu.sg/dataset/actionRecognition/](https://rose1.ntu.edu.sg/dataset/actionRecognition/) <br />
