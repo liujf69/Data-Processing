@@ -1,5 +1,5 @@
 # Extract_NTU_Person
-This is a code support for the **EPP-Net**. <br />
+This is a code support for the **IPP-Net**、**EPP-Net**. <br />
 You can generate the image frame required by EPP-Net as follows.
 ![image](https://github.com/liujf69/Extract_NTU_Person/blob/master/Fig.png)
 
