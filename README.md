@@ -48,5 +48,16 @@ python Extract_person.py --sample_name_path ./test_sample.txt \
     --data_yaml ./pretrained/coco128.yaml
 ```
 
+# Citation
+If you find our project helpful to your work, please cite the following:
+```
+@inproceedings{ding2023integrating,
+  author={Ding, Runwei and Wen, Yuhang and Liu, Jinfu and Dai, Nan and Meng, Fanyang and Liu Mengyuan},
+  title={Integrating Human Parsing and Pose Network for Human Action Recognition}, 
+  booktitle={Proceedings of the CAAI International Conference on Artificial Intelligence (CICAI)}, 
+  year={2023}
+}
+```
+
 
 
