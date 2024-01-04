@@ -51,6 +51,13 @@ python Extract_person.py --sample_name_path ./test_sample.txt \
 # Citation
 If you find our project helpful to your work, please cite the following:
 ```
+@inproceedings{liu2023explore,
+  author={Liu, Jinfu and Ding, Runwei and Wen, Yuhang and Dai, Nan and Meng, Fanyang and Zhao, Shen and Liu, Mengyuan},
+  title={Explore Human Parsing Modality for Action Recognition}, 
+  booktitle={CAAI Transactions on Intelligence Technology (CAAI TIT)}, 
+  year={2023}
+}
+
 @inproceedings{ding2023integrating,
   author={Ding, Runwei and Wen, Yuhang and Liu, Jinfu and Dai, Nan and Meng, Fanyang and Liu Mengyuan},
   title={Integrating Human Parsing and Pose Network for Human Action Recognition}, 
