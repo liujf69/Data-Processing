@@ -1,1 +1,4 @@
-# Using 22 joints to visualize SMPL human body 3D map
+# Use 22 pose joints to visualize SMPL 3D map
+
+# Reference
+Our code is based on [joints2smpl](https://github.com/wangsen1312/joints2smpl)
