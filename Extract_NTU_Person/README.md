@@ -1,7 +1,7 @@
 # Extract_NTU_Person
 This is a code support for the **MAL**, **EPP-Net**, **IPP-Net**. <br />
 You can generate the image frame required by EPP-Net as follows.
-![image](https://github.com/liujf69/Extract_NTU_Person/blob/master/Fig.png)
+![image](./Fig.png)
 
 # Prepare datasets:
 1. Download **NTU RGB+D** Video dataset from [https://rose1.ntu.edu.sg/dataset/actionRecognition/](https://rose1.ntu.edu.sg/dataset/actionRecognition/) <br />
@@ -55,7 +55,7 @@ If you find our project helpful to your work, please cite the following:
   author={Liu, Jinfu and Ding, Runwei and Wen, Yuhang and Dai, Nan and Meng, Fanyang and Zhao, Shen and Liu, Mengyuan},
   title={Explore Human Parsing Modality for Action Recognition}, 
   booktitle={CAAI Transactions on Intelligence Technology (CAAI TIT)}, 
-  year={2023}
+  year={2024}
 }
 
 @inproceedings{ding2023integrating,
