@@ -1,6 +1,6 @@
 # Extract_NTU_Person
-This is a code support for the **MAL**, **EPP-Net**, **IPP-Net**. <br />
-You can generate the image frame required by EPP-Net as follows.
+This is a code support for the **MMCL**, **EPP-Net**, **IPP-Net**. <br />
+You can generate the image frame required by the MMCL, EPP-Net and IPP-Net as follows.
 ![image](./Fig.png)
 
 # Prepare datasets:
