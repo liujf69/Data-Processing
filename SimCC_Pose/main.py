@@ -246,6 +246,49 @@ class HP_estimation():
     def HPose_estimation(self, img_frame):
         data_dict = self.extract_feature_from_one_person(self.model_detect, self.model_pose, img_frame)
         return data_dict
+    
+    def get_origin(self, loc, idx_x, idx_y):
+        x = loc[0]  # x1
+        y = loc[1]  # y1
+        w = loc[2] - loc[0]  # x2-x1
+        h = loc[3] - loc[1]  # y2-y1
+        image_size = (1080, 1920)
+        c, s = self._xywh2cs(x, y, w, h, image_size)
+        r = 0
+        image_size = (192, 256)
+        trans = get_affine_transform(c, s, r, image_size)
+        inv_trans = self.inv_align(trans)
+
+        origin_idx_x = np.zeros((17)) # 17
+        origin_idx_y = np.zeros((17)) # 17
+        for idx in range(17):
+            origin_idx_x[idx] = idx_x[idx]*inv_trans[0][0] + idx_y[idx]*inv_trans[0][1] + inv_trans[0][2]
+            origin_idx_y[idx] = idx_x[idx]*inv_trans[1][0] + idx_y[idx]*inv_trans[1][1] + inv_trans[1][2]
+        
+        return origin_idx_x, origin_idx_y
+    
+    def inv_align(self, M):
+        # M的逆变换
+        k  = M[0, 0]
+        b1 = M[0, 2]
+        b2 = M[1, 2]
+        return np.array([[1/k, 0, -b1/k], [0, 1/k, -b2/k]])
+
+    def view_pose(self, img, origin_idx_x, origin_idx_y):
+        skeleton = [
+            [16, 14], [14, 12], [17, 15], [15, 13], [12, 13], [6, 12], [7, 13], [6, 7], [6, 8],
+            [7, 9], [8, 10], [9, 11], [1, 2], [1, 3], [2, 4], [3, 5], [1, 7], [1, 6]
+        ]
+        for idx in skeleton:
+            st_x = int(origin_idx_x[idx[0] - 1])
+            st_y = int(origin_idx_y[idx[0] - 1])
+            ed_x = int(origin_idx_x[idx[1] - 1])
+            ed_y = int(origin_idx_y[idx[1] - 1])
+            cv2.line(img, (st_x, st_y), (ed_x, ed_y), (0, 255, 0), 2)
+
+        # for i in range(17):
+        #     cv2.circle(img, (int(origin_idx_x[i]), int(origin_idx_y[i])), 5, (0,255,0), -1)
+        return img
 
 if __name__ == "__main__":
     
@@ -253,6 +296,7 @@ if __name__ == "__main__":
     samples_txt = './test.txt'
     videos_path = './data/video/'
     frames_path = './data/video2frame/'
+    save_vis_path = './data/Visualization/'
     save_path = "./output/"
     samples_name = np.loadtxt(samples_txt, dtype=str)
 
@@ -273,12 +317,25 @@ if __name__ == "__main__":
                 break
 
             # save frame
-            cv2.imwrite(save_frames_path + '/' + str(frame_idx) + '.jpg', img, [cv2.IMWRITE_JPEG_QUALITY, 77]) # rate = 77
-            frame_idx += 1
+            cv2.imwrite(save_frames_path + '/' + str(frame_idx) + '.jpg', img)#, [cv2.IMWRITE_JPEG_QUALITY, 77]) # rate = 77
 
             # get pose
             data_dict = model.HPose_estimation(img) # data_dict:[T, dict]
             tmp_data.append(data_dict)
+            
+            # vis pose (get the origin_x and origin_y)
+            loc = data_dict['location'][0]
+            idx_x = data_dict['skeleton'][0][0][:, 0]
+            idx_y = data_dict['skeleton'][0][0][:, 1]
+            origin_x, origin_y = model.get_origin(loc, idx_x, idx_y)
+            vis_img = model.view_pose(img, origin_x, origin_y)
+            save_vis_img_path = save_vis_path + name
+            if not os.path.exists(save_vis_img_path):
+                os.makedirs(save_vis_img_path)
+            cv2.imwrite(save_vis_img_path + '/' + str(frame_idx) + '.jpg', vis_img)
+            
+            frame_idx += 1
+            
         np.save(save_path + name + ".npy", tmp_data) # save data
  
     print("All done!")
