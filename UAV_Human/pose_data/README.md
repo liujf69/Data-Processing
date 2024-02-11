@@ -1,0 +1,1 @@
+# The results of the script extract_pose.py will be placed here
