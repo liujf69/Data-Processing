@@ -39,7 +39,7 @@ def Extract_frame(sample_name, rgb_video_path, output_path):
                 break
             if not os.path.exists(save_path):
                 os.makedirs(save_path)
-            
+            # cv2.imwrite(save_path + '/' + str(frame_idx) + '.jpg', rgb_img)
             cv2.imwrite(save_path + '/' + str(frame_idx) + '.jpg', rgb_img, [cv2.IMWRITE_JPEG_QUALITY, 77]) # rate = 77
             frame_idx = frame_idx + 1
     
