@@ -51,6 +51,13 @@ python Extract_person.py --sample_name_path ./test_sample.txt \
 # Citation
 If you find our project helpful to your work, please cite the following:
 ```
+@inproceedings{liu2024mmcl,
+  author = {Liu, Jinfu and Chen, Chen and Liu, Mengyuan},
+  title = {Multi-Modality Co-Learning for Efficient Skeleton-based Action Recognition}, 
+  booktitle = {Proceedings of the ACM Multimedia (ACM MM)}, 
+  year = {2024}
+}
+
 @inproceedings{liu2023explore,
   author={Liu, Jinfu and Ding, Runwei and Wen, Yuhang and Dai, Nan and Meng, Fanyang and Zhao, Shen and Liu, Mengyuan},
   title={Explore Human Parsing Modality for Action Recognition}, 
