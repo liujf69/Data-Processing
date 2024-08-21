@@ -9,3 +9,8 @@ mv SimCC_Pose_weights/yolov5m.pt ./pretrained
 mv SimCC_Pose_weights/fast_res50_256x192.pth ./models/sppe
 mv SimCC_Pose_weights/fast_res101_320x256.pth ./models/sppe
 ```
+
+# Test Demo
+```
+python main.py
+```
