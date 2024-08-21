@@ -14,3 +14,7 @@ mv SimCC_Pose_weights/fast_res101_320x256.pth ./models/sppe
 ```
 python main.py
 ```
+<div align=center>
+<img src="./origin.jpg", width = 500/>
+<img src="./pose.jpg", width = 500/>
+</div>
