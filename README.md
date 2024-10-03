@@ -10,3 +10,4 @@
 9. You can refer to the ```Vis_15jointToMANO``` folder for visualizing the hand gesture data in MANO Type.
 10. You can refer to the ```Vis_22JointToSMPL``` folder for visualizing the body data in SMPL Type.
 11. You can refer to the ```Yolo_det_video``` folder for detecting the person from videos by using the YoloV5 model.
+12. You can refer to the ```Event_Camera``` folder for processing the Event Camera data.
