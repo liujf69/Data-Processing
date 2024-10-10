@@ -20,7 +20,7 @@ def get_parser():
     parser.add_argument(
         '--video_path', 
         type = str,
-        default = '/data-home/liujinfu/dataset/Videos')
+        default = './Video')
     parser.add_argument(
         '--output_path', 
         type = str,
@@ -28,7 +28,7 @@ def get_parser():
     parser.add_argument(
         '--device', 
         type = int,
-        default = 4)
+        default = 0)
     parser.add_argument(
         '--model_path', 
         type = str,
@@ -165,10 +165,15 @@ def Extract_Person_frame(samples, video_path, output_path, model_path, data_yaml
     for _, name in enumerate(samples):
         print("Processing " + name)
         label = name[-3:]
-        video_file_path = video_path + '/' + name + '_rgb.avi'
-        save_path = output_path + '/' + name + '/'
+        setup_id = int(name[1:4])
+        if int(setup_id) < 18: 
+            video_file_path = video_path + '/NTU60/' + name + '_rgb.avi'
+            save_path = output_path + '/NTU60/' + name + '/'
+        else: 
+            video_file_path = video_path + '/NTU120/' + name + '_rgb.avi'
+            save_path = output_path + '/NTU120/' + name + '/'
         if not os.path.exists(save_path):
-                os.makedirs(save_path)
+            os.makedirs(save_path)
         
         cap = cv2.VideoCapture(video_file_path)
         frame_idx = 0

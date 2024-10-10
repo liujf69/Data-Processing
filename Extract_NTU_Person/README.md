@@ -33,7 +33,7 @@ python Extract_frame.py --sample_name_path ./test_sample.txt \
 # Extract person frame:
 **Run:** 
 ```
-python Extract_person.py --sample_name_path ./test_sample.txt \
+python Extract_person.py --sample_name_path sample_name_path \
       --frame_path frame_path \
       --output_path output_path \
       --model_path model_path \
@@ -46,6 +46,23 @@ python Extract_person.py --sample_name_path ./test_sample.txt \
     --output_path ./Person_Frame \
     --model_path ./pretrained/yolov5m.pt \
     --data_yaml ./pretrained/coco128.yaml
+```
+
+# Extract person frame from video:
+```
+python Extract_person_from_video.py --sample_name_path sample_name_path \
+      --video_path video_path \
+      --output_path output_path \
+      --model_path model_path \
+      --data_yaml data_yaml
+```
+**Example:**
+```
+python Extract_person_from_video.py --sample_name_path ./test_sample.txt \
+      --video_path ./Video \
+      --output_path ./Person_Frame \
+      --model_path ./pretrained/yolov5m.pt \
+      --data_yaml ./pretrained/coco128.yaml
 ```
 
 # Citation
